@@ -22,7 +22,7 @@ function AddBook() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/book/book",
+        "https://book-management-backend-wlqa.onrender.com/api/book/book",
         bookDetails
       );
       if (response.status === 200) {

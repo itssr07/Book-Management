@@ -18,7 +18,7 @@ function Book() {
   }, []);
   const fetchData = () => {
     axios
-      .get("http://localhost:5000/api/book/book")
+      .get("https://book-management-backend-wlqa.onrender.com/api/book/book")
       .then((res) => {
         const reversedBooks = res.data.reverse();
         setBooks(reversedBooks);
