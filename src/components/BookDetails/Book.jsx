@@ -37,7 +37,7 @@ function Book() {
 
   const handleDelete = (bookId) => {
     axios
-      .delete(`http://localhost:5000/api/book/book/${bookId}`)
+      .delete(`https://book-management-backend-wlqa.onrender.com/api/book/book/${bookId}`)
       .then((res) => {
         if (res.status === 200) {
           Swal.fire({
@@ -79,7 +79,7 @@ function Book() {
   const handleUpdate = () => {
     axios
       .put(
-        `http://localhost:5000/api/book/book/${editedComponent._id}`, // Change to use _id instead of componentCode
+        `https://book-management-backend-wlqa.onrender.com/api/book/book/${editedComponent._id}`, // Change to use _id instead of componentCode
         editedComponent
       )
       .then((res) => {
@@ -217,7 +217,7 @@ function Book() {
                 <button
                   type="button"
                   onClick={() => setEditBox(false)}
-                  className="focus:outline-none ml-3 bg-gray-100 dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-600 transition duration-150 text-gray-600 dark:text-gray-400 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm"
+                  className="focus:outline-none ml-3 bg-gray-100 dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-600 transition duration-150 text-gray-700 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm"
                 >
                   Cancel
                 </button>
@@ -232,12 +232,12 @@ function Book() {
             <div className="flex items-center gap-x-3">
               <h2 className="text-lg font-medium text-gray-800 ">Book List</h2>
 
-              <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
+              <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full  dark:text-blue-400">
                 {totalBooks} Books
               </span>
             </div>
 
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
+            <p className="mt-1 text-sm text-gray-700">
               Total number of books in the list.
             </p>
           </div>
@@ -246,7 +246,7 @@ function Book() {
             <button
               type="submit"
               onClick={exportToCSV}
-              className="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700"
+              className="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto  hover:bg-gray-100"
             >
               <svg
                 width="20"
@@ -322,7 +322,7 @@ function Book() {
               placeholder="Search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
         </div>
@@ -330,27 +330,27 @@ function Book() {
         <div className="flex flex-col mt-6">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                  <thead className="bg-gray-50 dark:bg-gray-800">
+              <div className="overflow-hidden border border-gray-300 md:rounded-lg">
+                <table className="min-w-full divide-y divide-gray-300">
+                  <thead className="bg-gray-200">
                     <tr>
                       <th
                         scope="col"
-                        className="py-3.5 px-4 text-base font-semibold text-left rtl:text-right text-gray-800 dark:text-gray-400"
+                        className="py-3.5 px-4 text-base font-semibold text-left rtl:text-right text-gray-700"
                       >
                         Title
                       </th>
 
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-base font-semibold text-left rtl:text-right text-gray-800 dark:text-gray-400"
+                        className="px-12 py-3.5 text-base font-semibold text-left rtl:text-right text-gray-700"
                       >
                         Author
                       </th>
 
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-base font-semibold text-left rtl:text-right text-gray-800 dark:text-gray-400"
+                        className="px-12 py-3.5 text-base font-semibold text-left rtl:text-right text-gray-700"
                       >
                         Published Year
                       </th>
@@ -360,7 +360,7 @@ function Book() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                  <tbody className="bg-white divide-y divide-gray-200 ">
                     {filteredBooks?.map((book, index) => (
                       <tr key={index}>
                         <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
@@ -371,13 +371,13 @@ function Book() {
                           </div>
                         </td>
                         <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                          <div className="inline  py-1 text-sm font-normal rounded-full text-gray-700 gap-x-2  dark:bg-gray-800">
+                          <div className="inline  py-1 text-sm font-normal rounded-full text-gray-700 gap-x-2  ">
                             {" "}
                             {book.author}
                           </div>
                         </td>
                         <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                          <div className="inline  py-1 text-sm font-normal rounded-full text-gray-700 gap-x-2  dark:bg-gray-800">
+                          <div className="inline  py-1 text-sm font-normal rounded-full text-gray-700 gap-x-2  ">
                             {book.publishedYear}
                           </div>
                         </td>
